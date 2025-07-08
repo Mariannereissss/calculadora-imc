@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora imc</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header class="header">
+    <h1>Calculadora de IMC</h1>
+    </header>
+    <div class="tablee">
+    <table class="tabela">
+        <caption>Tabela de classificação de IMC </caption>
+        <thead>
+            <tr>
+                <th>IMC</th>
+                <th>Classificação</th>
+            </tr>
+        </thead>
+
+        <tbody class="corpinho">
+            <tr>
+                <td>Abaixo de 18.5</td>
+                <td>Abaixo do peso</td>
+            </tr>
+            <tr>
+                <td>Entre 18.6 e 24.9</td>
+                <td>Peso ideal</td>
+            </tr>
+            <tr>
+                <td>Entre 25 e 29.9</td>
+                <td>Acima do peso</td>
+            </tr>
+            <tr>
+                <td>Entre 30 e 34.9</td>
+                <td>Obesidade grau 1</td>
+            </tr>
+            <tr>
+                <td>Entre 35 e 39.9</td>
+                <td>Obesidade grau 2</td>
+            </tr>
+            <tr>
+                <td>Acima de 40</td>
+                <td>Obesidade grau 3</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="resultados" id="resultados">
+    </div>
+
+
+    <div class="inputss">
+    
+        <input type="text" placeholder="Digite sua altura. (ex:1.70)" id="altura" required>
+        <input type="text" placeholder="Digite seu peso. (ex:65.6)" id="peso" required>
+
+        <div class="botoes">
+            <button id="btn" type="submit">Enviar</button>
+            <button id="res" type="button">Limpar</button>
+        </div>
+    </div>
+
+    <script>
+        const altura = document.getElementById('altura');
+        const peso = document.getElementById('peso');
+        const botao = document.getElementById('btn');
+        const botaores = document.getElementById('res');
+        const div = document.getElementById('resultados');
+
+
+        function calcularIMC() {
+
+            const valorAltura = parseFloat(altura.value);
+            const valorPeso = parseFloat(peso.value); 
+
+            if((isNaN(valorAltura)) || (isNaN(valorPeso))) {
+                alert('Digite um número válido');
+            }
+
+            let imc = 0;
+
+            imc = valorPeso / (valorAltura * valorAltura);
+
+            const p1 = document.createElement('p');
+            const p2 = document.createElement('p');
+
+            if(imc <= 18.5) {
+                div.appendChild(p1);
+                div.appendChild(p2);
+                p1.textContent = `Seu IMC é: ${imc}`;
+                p2.textContent = 'Cuidado!';
+                p2.style.color = 'red';
+            }else if((imc >= 18.6) && (imc <= 24.9)) {
+                div.appendChild(p1);
+                div.appendChild(p2);
+                p1.textContent = `Seu IMC é: ${imc}`;
+                p2.textContent = 'Parabéns!';
+                p2.style.color = 'green';
+            }else if((imc >= 25) && (imc <= 29.9)) {
+                div.appendChild(p1);
+                div.appendChild(p2);
+                p1.textContent = `Seu IMC é: ${imc}`;
+                p2.textContent = 'Atenção!';
+                p2.style.color = 'orange';
+            }else if((imc >= 30) && (imc <= 34.90)) {
+                div.appendChild(p1);
+                div.appendChild(p2);
+                p1.textContent = `Seu IMC é: ${imc}`;
+                p2.textContent = 'Atenção!';
+                p2.style.color = 'red';
+            }else if((imc >= 35) && (imc <= 39.9)) {
+                div.appendChild(p1);
+                div.appendChild(p2);
+                p1.textContent = `Seu IMC é: ${imc}`;
+                p2.textContent = 'Atenção!';
+                p2.style.color = 'red';
+            }else {
+                div.appendChild(p1);
+                div.appendChild(p2);
+                p1.textContent = `Seu IMC é: ${imc}`;
+                p2.textContent = 'Atenção total!';
+                p2.style.color = 'red';
+            }
+        };
+
+        function resetar() {
+            div.textContent = ''
+        }
+
+        botao.addEventListener('click', calcularIMC);
+        botaores.addEventListener('click', resetar);
+    </script>
+</body>
+</html>

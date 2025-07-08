@@ -1,0 +1,73 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+    "header header header"
+    "tablee inputss resultados";
+    font-family: sans-serif, Arial;
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+}
+
+.tablee {
+    grid-area: tablee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputss {
+    grid-area: inputss;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultados {
+    grid-area: resultados;
+    text-align: center;
+}
+
+#altura {
+    padding: 20px 16px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+#peso {
+    padding: 20px 16px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.botoes {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 20px 25px;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 4px 5px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    background-color: pink;
+    border: 2px solid #000;
+    transform: scale(1.1);
+}
+
+.tabela {
+    border: 2px solid #000;
+}
